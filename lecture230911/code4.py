@@ -7,8 +7,8 @@ def cal_save_likelihoods(index, data, save_name):
     (2) likelihood 계산
     (3) likelihood 저장하고, return 해주기
     '''
-    severities = ['Material Damage', 'Minor injuries',
-                  'Major injuries', 'Fatal']
+    severities = ['material damage', 'minor injuries',
+                  'major injuries', 'fatal']
 
     freq_df = pd.DataFrame(columns=severities,
                            index=index, data=data)
