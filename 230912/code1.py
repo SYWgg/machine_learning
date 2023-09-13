@@ -33,4 +33,3 @@ norm_const = bayesian['joint'].sum()
 bayesian['posterior'] = bayesian['joint'] / norm_const
 
 print(bayesian, '\n')
-print(len(bayesian.columns))

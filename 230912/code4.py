@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 from utils import get_all_evidences
 from utils import update_bayesian_table
@@ -20,5 +21,5 @@ for row_idx, evidence in enumerate(evidences):
     row_data = list(evidence) + posterior   # evidence의 각 요소는 튜플 -> list()처리
     total_posterior.loc[row_idx] = row_data
 
-total_posterior.to_csv('total_posterior.csv')
+total_posterior.to_csv(os.path.join('data', 'total_posterior.csv'))
 print(total_posterior)

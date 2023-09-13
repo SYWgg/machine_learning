@@ -1,5 +1,6 @@
 import pandas as pd
 import itertools
+import os
 
 hypotheses = ['material damage', 'minor injuries', 'major injuries', 'fatal']
 data_types = ['Time', 'Day', 'Vehicle', 'Sex', 'Road', 'Surface']
@@ -45,4 +46,4 @@ for evidence in evidences:
 total_posterior_df = pd.DataFrame(data=total_posterior,
                                   columns=columns)
 print(total_posterior_df)
-total_posterior_df.to_csv('total_posterior_1.csv')
+total_posterior_df.to_csv(os.path.join('data', 'total_posterior_1.csv'))
