@@ -11,9 +11,10 @@ n_no_play = n_total_cases - n_play  # 5
 prior_probs = [n_play / n_total_cases,
                n_no_play / n_total_cases]
 
-prior = pd.Series(index=['Play', 'No Play'],
+prior = pd.Series(index=['T', 'not T'],
                   name='prior',
                   data=prior_probs)
 
 os.makedirs('tennis_data', exist_ok=True)
 prior.to_csv(os.path.join('tennis_data', 'prior.csv'))
+print(dataset)

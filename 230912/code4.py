@@ -18,7 +18,7 @@ for row_idx, evidence in enumerate(evidences):
     bayesian = update_bayesian_table(prior, total_likelihood, evidence)
     posterior = bayesian['posterior'].tolist()
 
-    row_data = list(evidence) + posterior   # evidence의 각 요소는 튜플 -> list()처리
+    row_data = list(evidence) + posterior  # evidence의 각 요소는 튜플 -> list()처리
     total_posterior.loc[row_idx] = row_data
 
 total_posterior.to_csv(os.path.join('data', 'total_posterior.csv'))
