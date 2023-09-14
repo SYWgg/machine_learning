@@ -1,7 +1,8 @@
+'''prior probability 구하기1 '''
 import pandas as pd
 import os
 
-dataset = pd.read_csv('PlayTennis.csv')
+dataset = pd.read_csv(os.path.join('tennis_data', 'PlayTennis.csv'))
 tennis = dataset['Play Tennis'] == 'Yes'
 
 n_total_cases = tennis.count()  # 14
@@ -17,4 +18,4 @@ prior = pd.Series(index=['T', 'not T'],
 
 os.makedirs('tennis_data', exist_ok=True)
 prior.to_csv(os.path.join('tennis_data', 'prior.csv'))
-print(dataset)
+print(prior)

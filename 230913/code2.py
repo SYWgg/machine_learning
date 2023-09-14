@@ -1,6 +1,9 @@
-import pandas as pd
+'''prior probability 구하기2 '''
 
-dataset = pd.read_csv('PlayTennis.csv')
+import pandas as pd
+import os
+
+dataset = pd.read_csv(os.path.join('tennis_data', 'PlayTennis.csv'))
 
 tennis = dataset['Play Tennis']
 tennis_values = tennis.unique()

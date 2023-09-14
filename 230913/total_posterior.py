@@ -4,8 +4,8 @@ import os
 from posterior_util import get_all_evidences
 from posterior_util import update_bayesian_table
 
-prior = pd.read_csv('tennis_data/prior.csv', index_col=0)
-total_likelihood = pd.read_csv('tennis_data/total_likelihoods.csv', index_col=0)
+prior = pd.read_csv(os.path.join('tennis_data', 'prior.csv'), index_col=0)
+total_likelihood = pd.read_csv(os.path.join('tennis_data', 'total_likelihoods.csv'), index_col=0)
 
 hypotheses = ['T', 'not T']
 data_types = ['Outlook', 'Temperature', 'Humidity', 'Wind']

@@ -1,7 +1,8 @@
 import pandas as pd
+import os
 
 def return_likelihood(index):
-    dataset = pd.read_csv('PlayTennis.csv')
+    dataset = pd.read_csv(os.path.join('tennis_data', 'PlayTennis.csv'))
     dataset_values = dataset[index].unique()
 
     yes = dataset[dataset['Play Tennis'] == 'Yes']  # play tennis Yes인 행만 저장

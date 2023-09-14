@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 def update_bayesian_table(prior, total_likelihoods, data):
     bayesian = prior.copy()
@@ -11,8 +12,8 @@ def update_bayesian_table(prior, total_likelihoods, data):
     return bayesian
 
 
-prior = pd.read_csv('tennis_data/prior.csv', index_col=0)
-total_likelihood = pd.read_csv('tennis_data/total_likelihoods.csv', index_col=0)
+prior = pd.read_csv(os.path.join('tennis_data', 'prior.csv'), index_col=0)
+total_likelihood = pd.read_csv(os.path.join('tennis_data', 'total_likelihoods.csv'), index_col=0)
 
 bayesian = update_bayesian_table(prior, total_likelihood, 'Sunny')
 

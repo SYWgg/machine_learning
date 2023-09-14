@@ -2,7 +2,7 @@ from likelihood_util import return_likelihood
 import os
 
 import pandas as pd
-dataset = pd.read_csv('PlayTennis.csv')
+dataset = pd.read_csv(os.path.join('tennis_data', 'PlayTennis.csv'))
 
 indexes = ['Outlook', 'Temperature', 'Humidity', 'Wind']
 
