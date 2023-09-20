@@ -7,7 +7,7 @@ dataset = pd.read_csv(os.path.join(DATASET_PATH, 'mnist_binary.csv'), index_col=
 
 pixels = []
 
-for i in dataset.columns[2:]:
+for i in dataset.columns[1:]:
     pixels.append(i)
 
 likelihoods = []
