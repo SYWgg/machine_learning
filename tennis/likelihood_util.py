@@ -1,15 +1,16 @@
 import pandas as pd
 import os
 
-def return_likelihood(index):
+
+def return_likelihood(attribute):
     dataset = pd.read_csv(os.path.join('tennis_data', 'PlayTennis.csv'))
-    dataset_values = dataset[index].unique()
+    dataset_values = dataset[attribute].unique()  # 인자로 전달 받은 attribute가 가진 값의 종류 가져오기
 
     yes = dataset[dataset['Play Tennis'] == 'Yes']  # play tennis Yes인 행만 저장
     no = dataset[dataset['Play Tennis'] == 'No']  # play tennis No인 행만 저장
 
-    yes_total = yes[index].count()
-    no_total = no[index].count()
+    yes_total = yes[attribute].count()  # yes일 때 전달 받은 attribute 행 개수
+    no_total = no[attribute].count()  # no일 때 전달 받은 attribute 행 개수
 
     yes_likelihood = []
     no_likelihood = []
@@ -17,9 +18,10 @@ def return_likelihood(index):
                                  index=dataset_values)
 
     for dataset_value in dataset_values:
-        yes_case = (yes[index] == dataset_value).sum()
+        yes_case = (yes[attribute] == dataset_value).sum()
         yes_likelihood.append(yes_case / yes_total)
-        no_case = (no[index] == dataset_value).sum()
+
+        no_case = (no[attribute] == dataset_value).sum()
         no_likelihood.append(no_case / no_total)
 
     likelihood_df['T'] = yes_likelihood
