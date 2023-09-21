@@ -7,6 +7,8 @@ Navie Bayes, knn... 구현하기!
 소개 : [iris_species 데이터](https://www.kaggle.com/datasets/uciml/iris?resource=download)를 KNN 알고리즘으로 K의 개수에 따른 분류 정확도를 구현
 
 
+
+
   step1. Euclidean distance로 각 data 하나씩과 나머지 data들 사이의 거리를 구한다.
 
   
