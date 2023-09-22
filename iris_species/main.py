@@ -19,13 +19,12 @@ print(y)
 
 # 정확도
 n_corrects = 0
-preds = []
 not_correct_index = []
-# test_data와 dataset 안에 있는 모든 데이터 사이의 거리
+
 for i in range(len(X)):
     dists = []
     print(X[i])
-    for X_ in X:
+    for X_ in X: # 각 data와 dataset 안에 있는 모든 데이터 사이의 거리
         dist = np.sqrt(np.sum((X[i] - X_) ** 2))
         print(f"{X_} -> dist: {dist:.4f}")
         dists.append(dist)
@@ -43,7 +42,6 @@ for i in range(len(X)):
     print('closet_classes의 unique한 종류 : ', uniques)
     print('그 unique한 값들의 count 수 :', cnts)
     pred = uniques[np.argmax(cnts)]  # cnts에서 가장 큰 값의 인덱스로 uniques 값에 접근
-    preds.append(pred)
     print(f'X의 {i}번째 index인 -> {X[i]}는 {pred}(으)로 분류됩니다.\n')
 
 
