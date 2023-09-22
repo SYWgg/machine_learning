@@ -1,5 +1,5 @@
 # machine_learning
-Navie Bayes, knn... 구현하기!
+Navie Bayes, knn... 구현
 
 
 
@@ -13,5 +13,5 @@ Navie Bayes, knn... 구현하기!
   step2. 거리가 가장 가까운 K개의 클래스들을 구해 그 중 가장 많이 count된 클래스로 예측 분류한다.
 
   
-  step3. 예측 분류한 값과 실제 값(species)을 비교해 K 값에 따른 정확도를 측정한다.
+  step3. 예측 분류한 값과 실제 값(species)을 비교해 K값에 따른 정확도를 측정한다.
   
