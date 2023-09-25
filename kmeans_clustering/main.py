@@ -19,6 +19,17 @@ for step in range(5):
     dists = np.sum((X_ - centroids_) ** 2, axis=2)  # (400 -> sample, 4 -> cluster)
     clustering_indices = np.argmin(dists, axis=1)  # 가까운 cluster의 인덱스
 
+    clustering_dict = {} # key: cluster의 index / value: 해당 cluster와 가장 가까운 점들 → 행렬
+    for k in range(K):
+        cluster_X = X[clustering_indices == k]
+        clustering_dict[k] = cluster_X
+
+    centroids = []
+    for k in range(K):
+        centroid = np.mean(clustering_dict[k], axis=0)
+        centroids.append(centroid)
+    centroids = np.concatenate(centroids).reshape(K, 2)
+
 # fig, ax = plt.subplots(figsize=(10, 10))
 # ax.scatter(X[:, 0], X[:, 1], alpha=0.5)
 # ax.scatter(centroids[:, 0], centroids[:, 1],
