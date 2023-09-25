@@ -13,7 +13,11 @@ random_indices = random_indices[:K]
 centroids = X[random_indices]  # 실제 존재하는 데이터에서 K개를 centroid로 설정
 
 X_ = X.reshape(n_samples, 1, 2)  # (400, 1, 2)
-for step in range(5):
+
+fig, axes = plt.subplots(2, 3, figsize=(15, 10)) ###
+axes = axes.flatten() ###
+axes[0].scatter(X[:, 0], X[:, 1]) ###
+for step in range(5): # centroid update 5번
     centroids_ = centroids.reshape(1, K, 2)  # (1, 4, 2)
 
     dists = np.sum((X_ - centroids_) ** 2, axis=2)  # (400 -> sample, 4 -> cluster)
@@ -24,14 +28,12 @@ for step in range(5):
         cluster_X = X[clustering_indices == k]
         clustering_dict[k] = cluster_X
 
+        axes[step + 1].scatter(cluster_X[:, 0], cluster_X[:, 1])  ###
+
     centroids = []
     for k in range(K):
         centroid = np.mean(clustering_dict[k], axis=0)
         centroids.append(centroid)
     centroids = np.concatenate(centroids).reshape(K, 2)
 
-# fig, ax = plt.subplots(figsize=(10, 10))
-# ax.scatter(X[:, 0], X[:, 1], alpha=0.5)
-# ax.scatter(centroids[:, 0], centroids[:, 1],
-#            color='red', marker='X', s=100)
-# plt.show()
+plt.show()
